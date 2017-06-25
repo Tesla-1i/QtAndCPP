@@ -31,7 +31,7 @@ public:
         MyDialog->resize(515, 350);
         label = new QLabel(MyDialog);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(150, 110, 71, 31));
+        label->setGeometry(QRect(150, 110, 141, 71));
 
         retranslateUi(MyDialog);
 
@@ -41,7 +41,7 @@ public:
     void retranslateUi(QDialog *MyDialog)
     {
         MyDialog->setWindowTitle(QApplication::translate("MyDialog", "MyDialog", 0));
-        label->setText(QApplication::translate("MyDialog", "hello world", 0));
+        label->setText(QApplication::translate("MyDialog", "hello world\344\275\240\345\245\275", 0));
     } // retranslateUi
 
 };
