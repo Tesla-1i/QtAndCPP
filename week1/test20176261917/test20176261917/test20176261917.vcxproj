@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{05DB29AC-B102-427B-BA98-C63F439C5253}</ProjectGuid>
+    <ProjectGuid>{7C12E7F7-AA7B-4286-86EA-377E012E985F}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>week110</RootNamespace>
+    <RootNamespace>test20176261917</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -77,7 +77,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="search.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

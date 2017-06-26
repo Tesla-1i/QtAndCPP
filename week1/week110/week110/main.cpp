@@ -1,33 +1,17 @@
 #include <iostream>
 using namespace std;
 
-int search(int *dArr, int len, int key){
-	cout << "1" << endl;
-	int middle, num = 0, low = 0, high = len - 1;
-	while (low <= high){
-		middle = (high + low) / 2;
-		if (dArr[middle] == key)
-		{
-			return middle;
-			cout << "num" << num << endl;
-		}
-		else if (dArr[middle] > key)
-			high = middle - 1;
-		else
-		{
-			low = middle + 1;
-		}
-	}
-	
-	cout << "2" << endl;
-	return -1;
-}
+
+int BinarySearchCount(int A[], int n, int target);
+//int search(int dArr[], int n, int target);
+//int searchMin(int *dArr, int n, int target);
+//int searchMax(int *dArr, int n, int target);
 
 int main(){
 	int array1[6];
 	cout << "冒泡排序,输入六个整数：" << endl;
 	int i=0, j=0, temp=0, compare = 0,change = 0 ;
-	/*for ( i = 0; i < 6; i++)
+	for ( i = 0; i < 6; i++)
 	{
 		cin >> array1[i];
 	}
@@ -110,7 +94,8 @@ int main(){
 	cout << "输入查找的元素: ";
 	int key;
 	cin >> key;
-	int num = search(dArr, 10, key);
+	int num = BinarySearchCount(dArr, 10, key);
+	//cout << "4 ";
 	cout << key << " 个数: " << num << endl;
 	return 0;
 }
