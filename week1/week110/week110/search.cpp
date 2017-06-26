@@ -79,10 +79,10 @@ using namespace std;
 
 //求等于target的最小元素位置。
 int searchMin(int *dArr, int n, int target){
-	cout << "11 ";
+	//cout << "11 ";
 	int start = 0, end = n - 1;
 	while (start <= end){
-		cout << "111 ";
+		//cout << "111 ";
 		int mid = (start + end) / 2;
 		if (dArr[mid] == target){
 			//中间元素左边元素等于目标元素
@@ -91,8 +91,9 @@ int searchMin(int *dArr, int n, int target){
 			}
 			else
 			{
-				cout << "1 ";
+				//cout << "1 ";
 				return mid;
+				break;	//没有不行，跳出循环，
 			}
 		}
 		else if (dArr[mid] > target)
@@ -108,7 +109,7 @@ int searchMin(int *dArr, int n, int target){
 }
 //求等于target的最大元素位置
 int searchMax(int *dArr, int n, int target){
-	cout << "22 ";
+	//cout << "22 ";
 	int start = 0, end = n - 1;
 	while (start <= end){
 		int mid = (start + end) / 2;
@@ -117,7 +118,7 @@ int searchMax(int *dArr, int n, int target){
 				start = mid + 1;
 			}
 			else{
-				cout << "2 ";
+				//cout << "2 ";
 				return mid;
 			}
 		}
@@ -135,14 +136,14 @@ int searchMax(int *dArr, int n, int target){
 int search(int dArr[], int n, int target){
 	int min = searchMin(dArr, n, target);
 	int max = searchMax(dArr, n, target);
-	cout << " 3";
+	//cout << " 3";
 	if (min == -1)
 		return 0;
 	int count = max - min + 1;
 	return count;
 }
 
-/*
+/*参考资料
 ttp://yq.aliyun.com/articles/3670
 ttp://blog.csdn.net/u014609111/article/details/53508068
 ttp://www.cnblogs.com/yjmyzz/p/4212149.html
