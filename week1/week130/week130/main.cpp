@@ -127,10 +127,11 @@ int main(){
 				   }
 
 		}case 3:{
-				   cout << "秒钟计时\n";
-				   time_t Time = time(0);
-				   Time += 1;
-				   while (Time > time(0)){
+				   cout << "5秒钟计时\n";
+				   time_t start = time(NULL);
+				   time_t stop = time(NULL);
+				   int second = 5;
+				   while ((stop-start)<=second){
 					   //cout << "1***** ";
 					   for (i = 0; i < 10; i++){
 						   a = calculateRandomNumber();
@@ -147,7 +148,9 @@ int main(){
 						   else{
 							   cout << "wrong\n";
 						   }
+						   //stop = time(NULL);
 					   }
+					   stop = time(NULL);
 				   }
 				   cout << "score: " << rightNumber << "\n";
 		}case 4:{
