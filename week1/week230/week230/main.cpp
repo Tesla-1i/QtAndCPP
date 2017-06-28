@@ -21,7 +21,7 @@ public:
 	LinkNode* search(LinkNode* pHead);
 	LinkNode* erase(LinkNode* pHead);
 	LinkNode* hebing(LinkNode* pHead1, LinkNode*pHead2);
-	//LinkNode* hebing1(LinkNode* pHead1, LinkNode* pHead2);
+	LinkNode* hebing1(LinkNode* pHead1, LinkNode* pHead2);
 };
 
 LinkNode* Link::create(){
@@ -33,16 +33,16 @@ LinkNode* Link::create(){
 		pTemp = new LinkNode;
 		pTemp->data = data;
 		pTemp->next = 0;
-		if (!pHead){
+		if (!pHead){		//头结点，非零为一
 			pHead = pTail = pTemp;
 		}
 		else{
 			//新增结点在后面
-			pTail->next = pTemp;
-			pTail = pTemp;
+			pTail->next = pTemp;	//当前节点的指针域指向下一个结点
+			pTail = pTemp;			//尾指针指向最后结点
 			//新增结点在最前面
-			//pTemp->next = pHead;
-			//pHead = pTemp;
+			//pTemp->next = pHead;	//新节点的指针域指向首结点
+			//pHead = pTemp;		//头指针指向新的首结点
 		}
 		//cout << "输入数据\n";
 		cin >> data;
@@ -138,9 +138,22 @@ LinkNode* Link::hebing(LinkNode* pHead1, LinkNode*pHead2){
 	//参考ttp://wiki.jikexueyuan.com/project/for-offer/question-senenteen.html
 }
 
-/*LinkNode* Link::hebing1(LinkNode* pHead1, LinkNode *pHead2){
-
-}*/
+LinkNode* Link::hebing1(LinkNode* pHead1, LinkNode *pHead2){
+	LinkNode *pTemp1 = pHead1, *pTemp2 = pHead2;
+	while ((pTemp2->next) != 0){		//bug所在，pTemp2 != 0,出错
+		if ((pTemp2->data) >= (pTemp1->data) && (pTemp2->data) <= (pTemp1->next->data)){
+			LinkNode* temp = pTemp2->next;
+			pTemp2->next = pTemp1->next;
+			pTemp1->next = pTemp2;
+			pTemp1 = pTemp1->next->next;
+			pTemp2 = temp;
+		}
+		else
+			pTemp2 = pTemp2->next;
+	}
+	pTemp1->next = pTemp2;	//bug所在。否则没有最后一个。
+	return pHead1;
+}
 
 int main(){
 	Link Link1;
@@ -169,7 +182,7 @@ int main(){
 	LinkNode* pResualt1;
 	pResualt1 = Link1.hebing(pHead1, pHead2);
 	Link1.list(pResualt1);
-	/*cout << "合并成一个有序链表\n";
+	cout << "合并成一个有序链表\n";
 	LinkNode *pHead11, *pHead21;
 	cout << "第一个有序链表\n";
 	pHead11 = Link1.create();
@@ -177,7 +190,7 @@ int main(){
 	pHead21 = Link1.create();
 	LinkNode* pResualt2;
 	pResualt2 = Link1.hebing1(pHead11, pHead21);
-	Link1.list(pResualt2);*/
+	Link1.list(pResualt2);
 	return 0;
 }
 
